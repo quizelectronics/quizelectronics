@@ -1,0 +1,53 @@
+body{
+    height: 100%;
+    width:99%;
+    background-image:url('singup-bg.webp');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+label{
+    font-family: 'Muli', sans-serif;
+    color:#f1efec;
+    font-size: 24px;
+    margin-left:5%;
+
+}
+
+fieldset{
+    font-family: 'Muli', sans-serif;
+    color:#f1efec;
+    font-size: 24px;
+    display: block;
+    height:300px;
+    width:300px;
+    background-color:rgba(88,75,66,0.2);
+    float: right;
+    padding:10px;
+    margin-top:10%;
+    border-radius:12px;
+    margin-right:5%;
+}
+legend{
+    text-align: center;
+}
+input{
+    margin-left:5%;
+    width:90%;
+    height:30px;
+    background-color:#f1efec;
+    border:none;
+    border-radius:10px;
+}
+
+#login{
+    width:100px;
+    text-align: center;
+    margin: auto;
+    display: block;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+}
+#login:hover{
+    cursor: pointer;
+}

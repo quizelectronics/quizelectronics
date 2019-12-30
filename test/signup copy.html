@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyCYHaaFcP8kgzoeCMr6TFuRfRlqKW8WRek",
+            authDomain: "quizelectronic.firebaseapp.com",
+            databaseURL: "https://quizelectronic.firebaseio.com",
+            projectId: "quizelectronic",
+            storageBucket: "quizelectronic.appspot.com",
+            messagingSenderId: "839750432089"
+          };
+          firebase.initializeApp(config);
+
+          function writeData() {
+              firebase.database().ref("Users").child(firebase.auth().currentUser.uid).set({
+                  email: document.getElementById("emailfield").value,
+                  usertype : document.getElementById("typefield").value
+              });
+          }
+
+        
+        </script>
+        <input type="text" placeholder="email" id="emailfield">
+        <input type="text" placeholder="type" id="typefield">
+        <button onclick="writeData()">Submit</button>
+        <button onclick="logout()">Logout</button>
+        <script src="logout.js"></script>
+</body>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyCYHaaFcP8kgzoeCMr6TFuRfRlqKW8WRek",
+            authDomain: "quizelectronic.firebaseapp.com",
+            databaseURL: "https://quizelectronic.firebaseio.com",
+            projectId: "quizelectronic",
+            storageBucket: "quizelectronic.appspot.com",
+            messagingSenderId: "839750432089"
+          };
+          firebase.initializeApp(config);
+
+          function writeData() {
+
+              
+                 var email = document.getElementById("emailfield").value;
+                 var password = document.getElementById("passwordfield").value;
+                var usertype = document.getElementById("typefield").value;
+
+                firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then(function(user) {
+    var user = firebase.auth().currentUser;
+    var userid = user.uid;
+    firebase.database().ref("Users").child(userid).set({
+                  Email: email,
+                  Usertype : usertype
+              });
+  })
+  .catch(function(error) {
+    // no `if (error)` is needed here: if `catch` is called, there was an error
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    window.alert("There went something wrong : " + errorMessage);
+  });
+
+
+
+              
+          }
+
+        
+        </script>
+        <input type="text" placeholder="email" id="emailfield">
+        <input type="text" placeholder="type" id="typefield">
+        <input type="password" placeholder="password" id="passwordfield">
+        <button onclick="writeData()">Submit</button>
+        <button onclick="logout()">Logout</button>
+        <script src="logout.js"></script>
+</body>
